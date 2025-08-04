@@ -3,9 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "bin": {
+    "ogc-checker": "dist/cli.js"
+  },
   "scripts": {
     "dev": "vite --open",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && npm run build:cli && vite build",
+    "build:cli": "tsc -p tsconfig.cli.json && echo '{\"type\":\"commonjs\"}' > dist/package.json",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest"
