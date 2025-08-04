@@ -143,3 +143,18 @@ Start the development server:
 ```bash
 npm run dev
 ```
+
+## Command line
+
+The checker can also be run from the command line or in a container:
+
+```bash
+# Run locally after building
+ogc-checker <spec> <file>
+
+# Or use the provided Dockerfile
+docker build -t ogc-checker .
+docker run --rm -v "$PWD":/data ogc-checker <spec> /data/<file>
+```
+
+The command exits with code `0` when all checks pass and a non‑zero code otherwise.
